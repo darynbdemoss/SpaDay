@@ -1,0 +1,17 @@
+﻿@if (ViewBag.user != null)
+{
+    <h1>Welcome to our Spa, @ViewBag.user.Username !</h1>
+}
+else
+{
+    <h1>Welcome to our Spa !</h1>
+}
+
+<a asp-controller="Spa" asp-action="Index">Select Spa Services</a>
+
+
+<div>
+    <h2>Account Details</h2>
+    <p>Email: @ViewBag.user.Email</p>
+    <p>Account created at: @ViewBag.user.CreatedAt</p>
+</div>
