@@ -1,4 +1,5 @@
-﻿<div class="row">
+﻿@model SpaDay.ViewModel.AddUserViewModel;
+<div class="row">
     <div class="col-12 col-md-6 offset-md-3">
 
         <h1>Sign Up</h1>
@@ -8,46 +9,30 @@
             <p class="alert-danger">@ViewBag.error</p>
         }
 
-        <form method="post" action="/user/add">
-            <div class="form-group">
-                <label> Username</label>
-                @if (ViewBag.error == null)
-                {
-                    <input class="form-control" type="text" name="username" />
-                }
-                else
-                {
-                    <input class="form-control" type="text" name="username" value="@ViewBag.user.Username" />
-                }
-            </div>
+    <form method="post" action="/user/add">
+        <div class="form-group">
+            <label asp-for="Username">User Name</label>
+            <input asp-for="Username" />
+            <span asp-validation-for="Username"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email Address</label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" type="password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Verify">Verify Password</label>
+            <input asp-for="Verify" type="password" />
+            <span asp-validation-for="Verify"></span>
+        </div>
 
-            <div class="form-group">
-                <label>Email</label>
-                @if (ViewBag.error == null)
-                {
-                    <input class="form-control" type="email" name="email" />
-                }
-                else
-                {
-                    <input class="form-control" type="email" name="email" value="@ViewBag.user.Email" />
-                }
-            </div>
-
-            <div class="form-group">
-                <label>Password</label>
-                <input class="form-control" type="password" name="password" />
-            </div>
-
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input class="form-control" type="password" name="verify" />
-            </div>
-
-            <input class="btn btn-primary form-control" type="submit" value="sign up" />
-        </form>
-
-
-
+        <input class="btn btn-primary form-control" type="submit" value="Sign up" />
+    </form>
     </div>
 </div>
 

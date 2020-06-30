@@ -1,6 +1,10 @@
-﻿@if (ViewBag.user != null)
+﻿@model SpaDay.Models.User;
+ 
+
+
+@if (Model != null)
 {
-    <h1>Welcome to our Spa, @ViewBag.user.Username !</h1>
+    <h1>Welcome to our Spa, @Model.Username !</h1>
 }
 else
 {
@@ -12,6 +16,6 @@ else
 
 <div>
     <h2>Account Details</h2>
-    <p>Email: @ViewBag.user.Email</p>
-    <p>Account created at: @ViewBag.user.CreatedAt</p>
+    <p>Email: @Model.Email</p>
+    <p>Account created at: @Model.CreatedAt</p>
 </div>

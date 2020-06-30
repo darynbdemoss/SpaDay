@@ -8,7 +8,7 @@ namespace SpaDay.Models
     {
         public string SkinType { get; set; }
         public string NailService { get; set; }
-        private List<string> appropriateFacials = new List<string>();
+        private readonly List<string> appropriateFacials = new List<string>();
 
         public Client(string skinType, string nailService)
         {
@@ -69,11 +69,13 @@ namespace SpaDay.Models
 
         public void SetFacials(String skinType)
         {
-            List<String> facials = new List<String>();
-            facials.Add("Microdermabrasion");
-            facials.Add("Hydrofacial");
-            facials.Add("Rejuvenating");
-            facials.Add("Enzyme Peel");
+            List<String> facials = new List<String>
+            {
+                "Microdermabrasion",
+                "Hydrofacial",
+                "Rejuvenating",
+                "Enzyme Peel"
+            };
 
             foreach (string facial in facials)
             {
